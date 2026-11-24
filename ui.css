@@ -1,0 +1,19 @@
+:root { --bg:#fff; --fg:#1f1f1f; --mut:#6b6b6b; --line:#d9d9d9; --acc:#7efff5; --accfg:#000; }
+  body[data-theme="dark"] { --bg:#18181a; --fg:#eee; --mut:#a0a0a0; --line:#3a3a3d; }
+  * { box-sizing: border-box; }
+  body { margin:0; padding:12px; font:13px/1.4 system-ui, sans-serif; background:var(--bg); color:var(--fg); }
+  h1 { font-size:14px; margin:0 0 8px; }
+  h2 { font-size:12px; margin:16px 0 6px; text-transform:uppercase; letter-spacing:.04em; color:var(--mut); }
+  .mut { color:var(--mut); }
+  .ligne { border:1px solid var(--line); border-radius:6px; padding:8px; margin-bottom:6px; }
+  .nom { font-family:ui-monospace, monospace; font-size:12px; word-break:break-all; }
+  .actuel { color:var(--mut); font-size:12px; margin:2px 0 6px; }
+  .champs { display:flex; gap:6px; }
+  select, input[type=text], input[type=number] { width:100%; padding:5px; border:1px solid var(--line); border-radius:4px; background:var(--bg); color:var(--fg); font:inherit; }
+  .champs select { flex:2; } .champs input { flex:1; }
+  label.radio { display:block; margin:4px 0; }
+  button { margin-top:14px; padding:8px 14px; border:0; border-radius:6px; background:var(--acc); color:var(--accfg); font:inherit; font-weight:600; cursor:pointer; width:100%; }
+  button:disabled { opacity:.5; cursor:default; }
+  #msg { margin-top:10px; padding:8px; border-radius:6px; display:none; }
+  #msg.ok { display:block; background:#1f6f3a33; } #msg.ko { display:block; background:#b0262633; }
+  .row2 { display:flex; gap:6px; }
