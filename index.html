@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Component convertisor</title>
+<link rel="stylesheet" href="ui.css">
+<script src="icons.js"></script>
+</head>
+<body>
+<header class="top">
+  <span id="logo"></span><span class="name">Component convertisor</span>
+</header>
+
+<main>
+  <section class="view" id="vide">
+    <div class="empty">Sélectionne un composant tokenisé (par exemple un bouton).</div>
+  </section>
+
+  <section class="view" id="app" hidden>
+    <span class="pill" id="sel"></span>
+
+    <h2>Tokens à décliner</h2>
+    <div id="liste" style="display:flex;flex-direction:column;gap:8px"></div>
+    <div class="empty" id="aucun" hidden>Aucun token de taille trouvé sur cette sélection.</div>
+
+    <h2>Variante</h2>
+    <input type="text" id="variante" value="Tablette" aria-label="Nom de la variante">
+    <div class="hint" id="jeux"></div>
+
+    <h2>Thème</h2>
+    <div class="seg" id="mode" role="group" aria-label="Thème">
+      <button data-mode="new" aria-pressed="true">Nouveau thème</button>
+      <button data-mode="existing" aria-pressed="false">Thème existant</button>
+    </div>
+    <div class="duo" id="blocNew">
+      <input type="text" id="themeGroup" placeholder="Groupe (défaut : appareil)">
+      <input type="text" id="themeName" placeholder="Nom (par défaut : la variante)">
+    </div>
+    <select id="themeExistant" hidden></select>
+
+    <label class="check"><input type="checkbox" id="activer" checked> Activer le thème après création</label>
+
+    <button class="go" id="go">Créer la variante</button>
+    <div id="msg" hidden></div>
+  </section>
+</main>
+<script src="ui.js"></script>
+</body>
+</html>
