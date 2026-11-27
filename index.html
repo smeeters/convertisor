@@ -8,19 +8,27 @@
 </head>
 <body>
 <header class="top">
-  <span id="logo"></span><span class="name">Component convertisor</span>
+  <span id="logo"></span><span class="name">Component convertisor</span><span class="ver">V3</span>
 </header>
 
 <main>
   <section class="view" id="vide">
-    <div class="empty">Sélectionne un composant tokenisé (par exemple un bouton).</div>
+    <div class="empty">Sélectionne un ou plusieurs composants tokenisés (par exemple des boutons).</div>
   </section>
 
-  <section class="view" id="app" hidden>
-    <span class="pill" id="sel"></span>
+  <!-- 1. Édition : tableau Desktop / Tablette -->
+  <section class="view" id="ed" hidden>
+    <h2>Composants sélectionnés</h2>
+    <div class="chips" id="composants"></div>
 
-    <h2>Tokens à décliner</h2>
-    <div id="liste" style="display:flex;flex-direction:column;gap:8px"></div>
+    <h2>Comparaison Desktop / <span id="nomVar">Tablette</span></h2>
+    <div class="tbl" id="tbl" role="table" aria-label="Comparaison des tokens">
+      <div class="rw th" role="row">
+        <span role="columnheader">Token</span><span role="columnheader">Desktop</span>
+        <span role="columnheader" id="thVar">Tablette</span><span role="columnheader">Modifier</span>
+      </div>
+      <div id="liste" style="display:flex;flex-direction:column;gap:8px"></div>
+    </div>
     <div class="empty" id="aucun" hidden>Aucun token de taille trouvé sur cette sélection.</div>
 
     <h2>Variante</h2>
@@ -34,14 +42,34 @@
     </div>
     <div class="duo" id="blocNew">
       <input type="text" id="themeGroup" placeholder="Groupe (défaut : appareil)">
-      <input type="text" id="themeName" placeholder="Nom (par défaut : la variante)">
+      <input type="text" id="themeName" placeholder="Nom (défaut : la variante)">
     </div>
     <select id="themeExistant" hidden></select>
+    <label class="check"><input type="checkbox" id="activer"> Activer le thème après création <span class="hint">(peut prendre quelques secondes)</span></label>
 
-    <label class="check"><input type="checkbox" id="activer" checked> Activer le thème après création</label>
+    <button class="go" id="apercu">Aperçu avant application</button>
+  </section>
 
-    <button class="go" id="go">Créer la variante</button>
-    <div id="msg" hidden></div>
+  <!-- 2. Aperçu : rien n'est écrit tant que tu n'as pas appliqué -->
+  <section class="view" id="ap" hidden>
+    <h2>Aperçu avant application</h2>
+    <div class="hint">Rien n'est modifié dans ton fichier tant que tu n'as pas cliqué sur « Appliquer ».</div>
+    <div id="apContenu"></div>
+    <div id="msgAp" hidden></div>
+    <div class="actions">
+      <button class="ghost" id="retour">Annuler</button>
+      <button class="go" id="appliquer">Appliquer</button>
+    </div>
+  </section>
+
+  <!-- 3. Résultat : rapport de conversion -->
+  <section class="view" id="res" hidden>
+    <h2>Rapport de conversion</h2>
+    <div id="resContenu"></div>
+    <div class="actions">
+      <button class="ghost" id="defaire">Annuler la conversion</button>
+      <button class="go" id="terminer">Terminer</button>
+    </div>
   </section>
 </main>
 <script src="ui.js"></script>

@@ -2,6 +2,6 @@
   "name": "Component convertisor",
   "description": "Décline un composant tokenisé (ex. bouton) en variante tablette ou mobile via un jeu de tokens et un thème.",
   "code": "https://smeeters.github.io/convertisor/plugin.js",
-  "version": 1,
+  "version": 3,
   "permissions": ["content:read", "library:read", "library:write"]
 }
